@@ -1,6 +1,7 @@
 import os
 from flask import Flask, redirect, url_for, render_template
 from flask_dance.contrib.google import make_google_blueprint, google
+import cv2
 
 app = Flask(__name__)
 

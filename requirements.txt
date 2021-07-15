@@ -2,3 +2,4 @@ flask-dance
 gunicorn
 blinker
 python-dotenv
+opencv-python
