@@ -1,5 +1,5 @@
 import os
-from flask import Flask, redirect, url_for, render_template
+from flask import Flask, redirect, url_for, render_template, Response
 from flask_dance.contrib.google import make_google_blueprint, google
 import cv2
 
@@ -43,3 +43,14 @@ def login():
     return render_template("stream.html")
 
 
+#####
+# Stream routes
+#####
+
+@app.route("/stream")
+def stream():
+    return render_template('stream.html')
+
+@app.route("/stream/video_feed")
+def video_feed():
+    return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
