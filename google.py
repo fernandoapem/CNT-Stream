@@ -17,8 +17,8 @@ def index():
         return render_template("main.html")
     return "hi"
 
-@app.route("/signup")
-def signup():
+@app.route("/login")
+def login():
     if not google.authorized:
         return redirect(url_for("google.login"))
     resp = google.get("/oauth2/v1/userinfo")
