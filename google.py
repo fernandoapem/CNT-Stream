@@ -11,8 +11,7 @@ app.config["GOOGLE_OAUTH_CLIENT_SECRET"] = "MIHGs8MvVUdD488Ph1GAxi1Y"
 google_bp = make_google_blueprint(scope=["profile", "email"])
 app.register_blueprint(google_bp, url_prefix="/login")
 
-
-#############
+############
 # Camera Stuff
 #############
 camera = cv2.VideoCapture('http://3018c4f61f90.ngrok.io') # <--------- Insert NGROK link in here
@@ -37,10 +36,10 @@ def index():
 @app.route("/login")
 def login():
     if not google.authorized:
-        return render_template("stream.html")
+        return redirect(url_for("google.login"))
     resp = google.get("/oauth2/v1/userinfo")
     assert resp.ok, resp.text
-    return render_template("stream.html")
+    return render_template("test.html")
 
 
 #####
