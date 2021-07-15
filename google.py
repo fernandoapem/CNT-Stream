@@ -14,7 +14,7 @@ app.register_blueprint(google_bp, url_prefix="/login")
 ############
 # Camera Stuff
 #############
-camera = cv2.VideoCapture('http://3018c4f61f90.ngrok.io') # <--------- Insert NGROK link in here
+camera = cv2.VideoCapture('http://ed50265e2ecc.ngrok.io') # <--------- Insert NGROK link in here
 def gen_frames():
     while True:
         success, frame = camera.read()  # read the camera frame
