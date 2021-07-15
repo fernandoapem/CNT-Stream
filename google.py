@@ -11,6 +11,22 @@ google_bp = make_google_blueprint(scope=["profile", "email"])
 app.register_blueprint(google_bp, url_prefix="/login")
 
 
+#############
+# Camera Stuff
+#############
+camera = cv2.VideoCapture('http://3018c4f61f90.ngrok.io') # <--------- Insert NGROK link in here
+def gen_frames():
+    while True:
+        success, frame = camera.read()  # read the camera frame
+        if not success:
+            break
+        else:
+            ret, buffer = cv2.imencode('.png', frame)
+            frame = buffer.tobytes()
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')  # concat frame one by one and show result
+
+
 @app.route("/")
 def index():
     if not google.authorized:
@@ -20,7 +36,7 @@ def index():
 @app.route("/login")
 def login():
     if not google.authorized:
-        return redirect(url_for("google.login"))
+        return render_template("stream.html")
     resp = google.get("/oauth2/v1/userinfo")
     assert resp.ok, resp.text
     return render_template("stream.html")
