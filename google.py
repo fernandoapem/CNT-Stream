@@ -4,8 +4,8 @@ from flask_dance.contrib.google import make_google_blueprint, google
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("FLASK_SECRET_KEY", "supersekrit")
-app.config["GOOGLE_OAUTH_CLIENT_ID"] = os.environ.get("GOOGLE_OAUTH_CLIENT_ID")
-app.config["GOOGLE_OAUTH_CLIENT_SECRET"] = os.environ.get("GOOGLE_OAUTH_CLIENT_SECRET")
+app.config["GOOGLE_OAUTH_CLIENT_ID"] = "MIHGs8MvVUdD488Ph1GAxi1Y"
+app.config["GOOGLE_OAUTH_CLIENT_SECRET"] = "66309064423-a1hi759ud0p2pgms0pm9cul2re55b73p.apps.googleusercontent.com"
 google_bp = make_google_blueprint(scope=["profile", "email"])
 app.register_blueprint(google_bp, url_prefix="/login")
 
