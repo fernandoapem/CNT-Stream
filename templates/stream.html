@@ -19,7 +19,9 @@
                 <div class="col-lg-8  offset-lg-2">
                     <h3 class="mt-5">Live Streaming</h3>
                     <img src="{{ url_for('video_feed') }}" width="100%">
-                    <video src="http://cf324fe4a2af.ngrok.io/stream.ogg" type="video/ogg;codecs=theora" autoplay="autoplay"></video>
+                    <video autoplay muted>
+                        <source src="http://cf324fe4a2af.ngrok.io/stream.ogg" type="video/ogg;codecs=theora">
+                    </video>
                 </div>
             </div>
         </div>
