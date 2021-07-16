@@ -39,7 +39,7 @@ def login():
         return redirect(url_for("google.login"))
     resp = google.get("/oauth2/v1/userinfo")
     assert resp.ok, resp.text
-    return render_template("test.html")
+    return "You are {email} on Google".format(email=resp.json()["email"])
 
 
 #####
