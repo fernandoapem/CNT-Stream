@@ -14,6 +14,7 @@ app.register_blueprint(google_bp, url_prefix="/login")
 ############
 # Camera Stuff
 #############
+'''
 camera = cv2.VideoCapture('http://ed50265e2ecc.ngrok.io') # <--------- Insert NGROK link in here
 def gen_frames():
     while True:
@@ -25,7 +26,7 @@ def gen_frames():
             frame = buffer.tobytes()
             yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')  # concat frame one by one and show result
-
+'''
 
 @app.route("/")
 def index():
@@ -49,7 +50,7 @@ def login():
 @app.route("/stream")
 def stream():
     return render_template('stream.html')
-
+'''
 @app.route("/stream/video_feed")
 def video_feed():
-    return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')'''
