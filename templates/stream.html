@@ -1,25 +1,28 @@
 <html>
     <head>
         <style>
+            #centeredelement{
+              
+                
+            }
+            .stream{
+                
+            }
         </style>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/stream.css') }}">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="static/js/stream.js"></script>
+
     </head>
     <body class="bg-dark">
-        <nav class="navbar navbar-dark bg-dark">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">
-                CNT-Stream
+            <center>
+              <a href="/">
+                <h1>CNT-Stream</h1>
               </a>
-            </div>
-        </nav>
+            </center>
         <div>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Launch demo modal
-            </button>
+
             
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -42,31 +45,16 @@
                 </div>
             </div>
         </div>
-        <div>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#streamModal">
-                Watch Live Stream
-            </button>
-            
-            <!-- Modal -->
-            <div class="modal fade" id="streamModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-xl">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="streamModalLabel">Live Stream</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <video autoplay muted>
-                                <source src="http://9a86916ac591.ngrok.io/stream.ogg" type="video/ogg;codecs=theora">
-                            </video>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <center>
+            <video autoplay muted class = "stream">
+                <source src="http://2c5d8eb28499.ngrok.io/stream.ogg" type="video/ogg;codecs=theora">
+            </video>
+        </center>       
+        
+        <!-- Button trigger modal -->
+        <center>
+        <button type="button" id = "centeredelement"class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Watch Static Video
+        </button></center>
     </body>
 </html>
