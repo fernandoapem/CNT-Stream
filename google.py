@@ -13,7 +13,8 @@ google_bp = make_google_blueprint(
   client_id=app.config['GOOGLE_OAUTH_CLIENT_ID'],
   client_secret=app.config['GOOGLE_OAUTH_CLIENT_SECRET'],
   scope=['profile', 'email'],
-  redirect_to='/stream'
+  redirect_to='/stream',
+  offline=True
 )           
 app.register_blueprint(google_bp, url_prefix="/login")
 
