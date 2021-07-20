@@ -57,7 +57,7 @@ def login():
 # Stream routes
 #####
 
-@app.route("/google/authorized")
+@app.route("/login/google/authorized")
 def stream():
     return render_template('stream.html')
 
