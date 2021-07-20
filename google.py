@@ -8,6 +8,7 @@ app = Flask(__name__)
 app.secret_key = os.environ.get("FLASK_SECRET_KEY", "supersekrit")
 app.config["GOOGLE_OAUTH_CLIENT_ID"] = os.environ.get("GOOGLE_OAUTH_CLIENT_ID")
 app.config["GOOGLE_OAUTH_CLIENT_SECRET"] = os.environ.get("GOOGLE_OAUTH_CLIENT_SECRET")
+
 google_bp = make_google_blueprint(
   client_id=app.config['GOOGLE_OAUTH_CLIENT_ID'],
   client_secret=app.config['GOOGLE_OAUTH_CLIENT_SECRET'],
@@ -39,11 +40,12 @@ def index():
         return render_template("main.html")
     return "hi"
 
+@app.route("/login2")
+def login2():
+    return render_template("login.html")
+
 @app.route("/login")
 def login():
-    return render_template("login.html")
-@app.route("/loging")
-def loging():
     if not google.authorized:
         return redirect(url_for("google.login"))
     resp = google.get("/oauth2/v1/userinfo")
