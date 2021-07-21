@@ -34,18 +34,18 @@ def gen_frames():
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')  # concat frame one by one and show result
 
 
-@app.route("/")
+@app.route("/authorized")
 def index():
     if not google.authorized:
         return render_template("main.html")
     return "hi"
 
-@app.route("/login2")
-def login2():
+@app.route("/")
+def login():
     return render_template("login.html")
 
-@app.route("/login")
-def login():
+@app.route("/login2")
+def login2():
     if not google.authorized:
         return redirect(url_for("google.login"))
     resp = google.get("/oauth2/v1/userinfo")
@@ -57,7 +57,7 @@ def login():
 # Stream routes
 #####
 
-@app.route("/login/google/authorized")
+@app.route("/stream")
 def stream():
     return render_template('stream.html')
 
